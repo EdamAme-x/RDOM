@@ -16,8 +16,8 @@ export const RDOM: typeRDOM = {
     attrs: {
       [key: string]: string;
     },
-    children: Element[]
-  ): Element {
+    children: Node[]
+  ): Node {
     const dom: Element = document.createElement(tagName);
     const attrs_keys: string[] = Object.keys(attrs);
 
@@ -44,7 +44,7 @@ export const RDOM: typeRDOM = {
   getShadowState(element: Element, stateName: string) {
     return element.getAttribute('_shadow_' + stateName);
   },
-  patch(element: Element, DOM: Element) {
-    element.appendChild(DOM);
+  patch(element: Element, DOM: Node) {
+    return element.appendChild(DOM);
   },
 };
